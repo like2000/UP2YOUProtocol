@@ -22,12 +22,21 @@ class MainWindow(U2YMainWindow):
         #     model.insertRows(i, 1, QtCore.QModelIndex())
 
         self.frame.setLayout(QtWidgets.QVBoxLayout())
-        btn_add = QtWidgets.QPushButton("Add card")
-        btn_add.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        self.frame.layout().addWidget(btn_add)
+
+        btn_add_1 = QtWidgets.QPushButton("Add card 1")
+        btn_add_1.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        btn_add_1.clicked.connect(lambda x: self.list_view.model().insertRow(self.list_view.model().rowCount(), card_type="arms"))
+        self.frame.layout().addWidget(btn_add_1)
+
+        btn_add_2 = QtWidgets.QPushButton("Add card 2")
+        btn_add_2.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        btn_add_2.clicked.connect(lambda x: self.list_view.model().insertRow(self.list_view.model().rowCount(), card_type="back"))
+        self.frame.layout().addWidget(btn_add_2)
+
         btn_save = QtWidgets.QPushButton("Save card")
         btn_save.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.frame.layout().addWidget(btn_save)
+
         btn_del = QtWidgets.QPushButton("Remove card")
         btn_del.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.frame.layout().addWidget(btn_del)

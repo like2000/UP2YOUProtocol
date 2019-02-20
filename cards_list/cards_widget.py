@@ -4,19 +4,27 @@ from PyQt5.QtWidgets import *
 
 class CardsWidget(QFrame):
 
-    def __init__(self, parent=None) -> None:
+    def __init__(self, card_type="default", parent=None) -> None:
         super().__init__(parent=parent)
 
-        self.initUi()
+        self.initUi(card_type)
 
-    def initUi(self):
+    def initUi(self, card_type):
         self.setFixedHeight(280)
-        self.setObjectName("Outer")
+        if card_type=="default":
+            self.setObjectName("Default")
+        elif card_type=="arms":
+            self.setObjectName("Arms")
+        elif card_type=="back":
+            self.setObjectName("Back")
         self.setStyleSheet("""
-            QFrame {background-color: whitesmoke;}
-            QFrame#Outer {border: 2px solid lightgray; border-radius: 8px;}
+            QFrame#Default {background-color: whitesmoke;
+                border: 2px solid rgba(160, 160, 160, 1); border-radius: 8px;}
+            QFrame#Arms {background-color: lavender;
+                border: 2px solid rgba(160, 160, 160, 1); border-radius: 8px;}
+            QFrame#Back {background-color: darkseagreen;
+                border: 2px solid rgba(160, 160, 160, 1); border-radius: 8px;}
         """)
-        # rgba(64, 64, 64, 1)
 
         effect = QGraphicsDropShadowEffect()
         effect.setOffset(2, 2)

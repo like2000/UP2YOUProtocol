@@ -17,14 +17,22 @@ class CardsModel(QAbstractListModel):
         try:
             self.data_table = pd.read_csv("res/store.csv")
         except IOError:
-            self.data_table = pd.DataFrame(columns=["dummy"])
+            self.data_table = pd.DataFrame(columns=["Index"])
             self.data_table.to_csv("res/store.csv")
 
-        for i in range(10):
+        for i in range(2):
             self.items_list.append(CardsWidget())
 
     def setData(self, index: QModelIndex, value: typing.Any, role: int = ...) -> bool:
         return super().setData(index, value, role)
+
+    @pyqtSlot()
+    def insertRow(self, row: int, parent=QModelIndex(), card_type: str = "default") -> bool:
+        self.beginInsertRows(parent, row-1, row)
+        self.items_list.append(CardsWidget(card_type))
+        self.endInsertRows()
+
+        return True
 
     def data(self, index: QModelIndex, role: int = ...) -> typing.Any:
 

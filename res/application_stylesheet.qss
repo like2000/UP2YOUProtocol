@@ -1,6 +1,6 @@
 
 
 background: whitesmoke;
-color: black;
+color: rgb(96, 96, 96);
 font-size: 12px;
 font-weight: bold;
