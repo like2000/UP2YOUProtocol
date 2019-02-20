@@ -13,7 +13,12 @@ class CardsModel(QAbstractListModel):
         super().__init__(parent=parent)
 
         self.items_list = []
-        self.data_table = pd.DataFrame()
+
+        try:
+            self.data_table = pd.read_csv("res/store.csv")
+        except IOError:
+            self.data_table = pd.DataFrame(columns=["dummy"])
+            self.data_table.to_csv("res/store.csv")
 
         for i in range(10):
             self.items_list.append(CardsWidget())
