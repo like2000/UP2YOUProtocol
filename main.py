@@ -2,7 +2,7 @@ import sys
 
 from PyQt5 import QtWidgets
 
-from cards_list.cards_model import CardsModel
+from controller_cards.cards_model import CardsModel
 from windows.u2y_main_window import U2YMainWindow
 
 
@@ -25,12 +25,14 @@ class MainWindow(U2YMainWindow):
 
         btn_add_1 = QtWidgets.QPushButton("Add card 1")
         btn_add_1.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        btn_add_1.clicked.connect(lambda x: self.list_view.model().insertRow(self.list_view.model().rowCount(), card_type="arms"))
+        btn_add_1.clicked.connect(
+            lambda x: self.list_view.model().insertRow(self.list_view.model().rowCount(), card_type="arms"))
         self.frame.layout().addWidget(btn_add_1)
 
         btn_add_2 = QtWidgets.QPushButton("Add card 2")
         btn_add_2.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        btn_add_2.clicked.connect(lambda x: self.list_view.model().insertRow(self.list_view.model().rowCount(), card_type="back"))
+        btn_add_2.clicked.connect(
+            lambda x: self.list_view.model().insertRow(self.list_view.model().rowCount(), card_type="back"))
         self.frame.layout().addWidget(btn_add_2)
 
         btn_save = QtWidgets.QPushButton("Save card")

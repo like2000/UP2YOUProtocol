@@ -11,11 +11,11 @@ class CardsWidget(QFrame):
 
     def initUi(self, card_type):
         self.setFixedHeight(280)
-        if card_type=="default":
+        if card_type == "default":
             self.setObjectName("Default")
-        elif card_type=="arms":
+        elif card_type == "arms":
             self.setObjectName("Arms")
-        elif card_type=="back":
+        elif card_type == "back":
             self.setObjectName("Back")
         self.setStyleSheet("""
             QFrame#Default {background-color: whitesmoke;

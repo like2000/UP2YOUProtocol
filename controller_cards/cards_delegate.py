@@ -2,7 +2,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
-from cards_list.cards_widget import CardsWidget
+from controller_cards.cards_widget import CardsWidget
 
 
 class CardsDelegate(QStyledItemDelegate):

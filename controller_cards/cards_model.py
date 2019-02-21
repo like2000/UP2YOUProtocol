@@ -1,10 +1,10 @@
 import typing
 
 import pandas as pd
-from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 
-from cards_list.cards_widget import CardsWidget
+from controller_cards.cards_widget import CardsWidget
 
 
 class CardsModel(QAbstractListModel):
@@ -28,7 +28,7 @@ class CardsModel(QAbstractListModel):
 
     @pyqtSlot()
     def insertRow(self, row: int, parent=QModelIndex(), card_type: str = "default") -> bool:
-        self.beginInsertRows(parent, row-1, row)
+        self.beginInsertRows(parent, row - 1, row)
         self.items_list.append(CardsWidget(card_type))
         self.endInsertRows()
 
