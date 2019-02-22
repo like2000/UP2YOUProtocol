@@ -18,10 +18,10 @@ class U2YMainWindow(QtWidgets.QMainWindow):
         splitter = QtWidgets.QSplitter(QtCore.Qt.Horizontal)
         self.setCentralWidget(splitter)
 
-        self.frame = QtWidgets.QFrame()
-        splitter.addWidget(self.frame)
+        self.leftTabWidget = QtWidgets.QTabWidget()
+        splitter.addWidget(self.leftTabWidget)
 
-        self.list_view = QtWidgets.QListView()
-        splitter.addWidget(self.list_view)
+        self.rightTabWidget = QtWidgets.QTabWidget()
+        splitter.addWidget(self.rightTabWidget)
 
         self.show()
